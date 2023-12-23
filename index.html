@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Cutting</title>
+</head>
+<body>
+
+<div id="div1">Lorem ipsum dolor</div>
+<div id="div2">sit amet, consectetur adipisicing</div>
+<div id="div3">debitis voluptate eos</div>
+<button onclick="cutText()">Cut</button>
+
+<script>
+  function cutText() {
+    // Отримати всі елементи <div>
+    var divElements = document.querySelectorAll('div');
+
+    // Ітерувати через кожен <div>
+    divElements.forEach(function(div) {
+      // Отримати текст з кожного <div>
+      var text = div.textContent;
+
+      // Обрізати текст, який більше 10 символів
+      var truncatedText = text.length > 10 ? text.substring(0, 10) + '...' : text;
+
+      // Задати обрізаний текст назад в <div>
+      div.textContent = truncatedText;
+    });
+  }
+</script>
+
+</body>
+</html>
